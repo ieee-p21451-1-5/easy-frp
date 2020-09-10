@@ -4,14 +4,14 @@ This repository is for easy deployment of [`frp`](https://github.com/fatedier/fr
 
 We assume you log in as the super user, though it is **strongly recommended against** in practical deployment.
 
-## Common Steps
+## 1. Common Steps
 
 ```shell
 cd ~root/
 git clone https://github.com/ieee-p21451-1-5/easy-frp.git
 ```
 
-## On Cloud Server
+## 2a. On Cloud Server
 
 ### Deploying `frp` Server and Traffic Monitoring Service
 
@@ -43,7 +43,7 @@ To view records of inward SNMP packets:
 tail -f ~root/easy-frp/logs/frps-traffic-log-<date_and_time>
 ```
 
-## On NCAP
+## 2b. On NCAP
 
 ### A Prerequisite
 
