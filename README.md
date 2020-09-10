@@ -13,6 +13,8 @@ git clone https://github.com/ieee-p21451-1-5/easy-frp.git
 
 ## On Cloud Server
 
+### Deploying `frp` Server and Traffic Monitoring Service
+
 ```shell
 cd ~root/easy-frp/
 git update-index --assume-unchanged ./frps.ini # to make git ignore changes in the configuration file
@@ -21,11 +23,24 @@ cp ./systemd/frp-server.service /etc/systemd/system/
 cp ./systemd/frps-traffic.service /etc/systemd/system/
 systemctl daemon-reload
 systemctl enable frp-server.service frps-traffic.service
+```
 
-# ---reboot---
+Reboot the system.
 
-tail -f ~root/easy-frp/logs/frp-log-<date_and_time> # view frp server's log
-tail -f ~root/easy-frp/logs/frps-traffic-log-<date_and_time> # view inward SNMP packets
+### Viewing Logs
+
+Before running the following commands, change the `<date_and_time>` part to appropriate value.
+
+To view `frp` server's log:
+
+```shell
+tail -f ~root/easy-frp/logs/frp-log-<date_and_time>
+```
+
+To view records of inward SNMP packets: 
+
+```shell
+tail -f ~root/easy-frp/logs/frps-traffic-log-<date_and_time>
 ```
 
 ## On NCAP
@@ -36,7 +51,7 @@ Since Raspberry Pi doesn't have any RTC, in its early stage of booting, the syst
 
 If you have set up the NCAP following the steps in [this page](https://github.com/ieee-p21451-1-5/demo-ncap),  `check-sync.service` should have already been installed.
 
-### Deployment
+### Deploying `frp` Client
 
 ```shell
 cd ~root/easy-frp/
@@ -45,9 +60,17 @@ vim ./frpc.ini # and change the IP address of cloud server
 cp ./systemd/frp-client.service /etc/systemd/system/
 systemctl daemon-reload
 systemctl enable frp-client.service 
+```
 
-# ---reboot---
+Reboot the system.
 
-tail -f ~root/easy-frp/logs/frp-log-<date_and_time> # view frp client's log
+### Viewing Logs
+
+Before running the following command, change the `<date_and_time>` part to appropriate value.
+
+To view `frp` client's log:
+
+```shell
+tail -f ~root/easy-frp/logs/frp-log-<date_and_time>
 ```
 
