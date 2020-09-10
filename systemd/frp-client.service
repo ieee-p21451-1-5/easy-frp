@@ -1,0 +1,12 @@
+# This file should be put under /etc/systemd/system/.
+
+[Unit]
+Description=frp client
+After=check-sync.service
+
+[Service]
+Type=simple
+ExecStart=/bin/bash /root/easy-frp/scripts/frp-client.sh
+
+[Install]
+WantedBy=multi-user.target

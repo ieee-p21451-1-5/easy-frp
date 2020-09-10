@@ -1,0 +1,12 @@
+# This file should be put under /etc/systemd/system/.
+
+[Unit]
+Description=traffic monitoring on frp server
+After=check-sync.service
+
+[Service]
+Type=simple
+ExecStart=/bin/bash /root/easy-frp/scripts/frps-traffic.sh
+
+[Install]
+WantedBy=multi-user.target
