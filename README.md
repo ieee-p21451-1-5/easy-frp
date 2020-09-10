@@ -10,6 +10,7 @@ git clone https://github.com/ieee-p21451-1-5/easy-frp.git
 ## On Cloud Server
 
 ```shell
+vim ./easy-frp/frps.ini # and change the username & password for Dashboard 
 cp ./easy-frp/systemd/frp-server.service /etc/systemd/system/
 cp ./easy-frp/systemd/frps-traffic.service /etc/systemd/system/
 systemctl daemon-reload
@@ -27,6 +28,7 @@ If you have set up the NCAP following the steps in [this page](https://github.co
 ### Deployment
 
 ```shell
+vim ./easy-frp/frpc.ini # and change the IP address of cloud server
 cp ./easy-frp/systemd/frp-client.service /etc/systemd/system/
 systemctl daemon-reload
 systemctl enable frp-client.service 
