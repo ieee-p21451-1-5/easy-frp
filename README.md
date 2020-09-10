@@ -21,7 +21,7 @@ systemctl enable frp-server.service frps-traffic.service
 
 ### A Prerequisite
 
-Since Raspberry Pi doesn't have an RTC, in the its early stage of booting, Raspberry Pi's system time is "somewhen"  on Jan 1st, 1970. To avoid using such an archaic (also incorrect, of course) timestamp in the naming of log files, we'd better start services after the system clock has been synchronized through Internet. We crafted a special service named `check-sync.service`, which will finish its initialization process only if the system clock has been synchronized. Having `check-sync.service`, we can make another service start with a correct system time, which is desired in a lot of cases. 
+Since Raspberry Pi doesn't have any RTC, in its early stage of booting, the system time is "somewhen" on January 1, 1970. To avoid using such archaic (also incorrect, of course) timestamps in the naming of log files, we'd better start services after the system clock has been synchronized through Internet. We crafted a special service named `check-sync.service`, which will finish its initialization process only if the system clock has been synchronized. Having `check-sync.service`, we can make another service start with a correct system time, which is desired in a lot of cases. 
 
 If you have set up the NCAP following the steps in [this page](https://github.com/ieee-p21451-1-5/demo-ncap),  `check-sync.service` should have already been installed.
 
