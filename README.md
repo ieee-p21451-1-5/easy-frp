@@ -2,6 +2,8 @@
 
 This repository is for easy deployment of [`frp`](https://github.com/fatedier/frp) in the IEEE P21451-1-5 demonstration system.
 
+We assume you log in as the super user, though it is **strongly recommended against** in practical deployment.
+
 ## Common Steps
 
 ```shell
@@ -12,9 +14,11 @@ git clone https://github.com/ieee-p21451-1-5/easy-frp.git
 ## On Cloud Server
 
 ```shell
-vim ./easy-frp/frps.ini # and change the username & password for Dashboard 
-cp ./easy-frp/systemd/frp-server.service /etc/systemd/system/
-cp ./easy-frp/systemd/frps-traffic.service /etc/systemd/system/
+cd ~root/easy-frp/
+git update-index --assume-unchanged ./frps.ini # to make git ignore changes in the configuration file
+vim ./frps.ini # and change the username & password for Dashboard 
+cp ./systemd/frp-server.service /etc/systemd/system/
+cp ./systemd/frps-traffic.service /etc/systemd/system/
 systemctl daemon-reload
 systemctl enable frp-server.service frps-traffic.service
 
@@ -35,8 +39,10 @@ If you have set up the NCAP following the steps in [this page](https://github.co
 ### Deployment
 
 ```shell
-vim ./easy-frp/frpc.ini # and change the IP address of cloud server
-cp ./easy-frp/systemd/frp-client.service /etc/systemd/system/
+cd ~root/easy-frp/
+git update-index --assume-unchanged ./frpc.ini # to make git ignore changes in the configuration file
+vim ./frpc.ini # and change the IP address of cloud server
+cp ./systemd/frp-client.service /etc/systemd/system/
 systemctl daemon-reload
 systemctl enable frp-client.service 
 
