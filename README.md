@@ -37,11 +37,17 @@ To view `frp` server's log:
 tail -f ~root/easy-frp/logs/frp-log-<date_and_time>
 ```
 
-To view records of inward SNMP packets: 
+To view the records of inward SNMP packets: 
 
 ```shell
 tail -f ~root/easy-frp/logs/frps-traffic-log-<date_and_time>
 ```
+
+### Dashboard
+
+Go to http://YOUR_ADDRESS:7500, where `YOUR_ADDRESS` is the IP address of your cloud server, and log in with the username and password predefined in `frps.ini`.
+
+Then, feel free to browse the traffic statistics of the `frp` server using the web UI. 
 
 ## 2b. Configuration for NCAP
 
