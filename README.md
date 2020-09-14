@@ -7,7 +7,7 @@ We assume you log in as the super user, though it is **strongly recommended agai
 ## 1. Common Steps
 
 ```shell
-cd ~root/
+cd /root/
 git clone https://github.com/ieee-p21451-1-5/easy-frp.git
 ```
 
@@ -16,7 +16,7 @@ git clone https://github.com/ieee-p21451-1-5/easy-frp.git
 ### Deploying `frp` Server and Traffic Monitoring Service
 
 ```shell
-cd ~root/easy-frp/
+cd /root/easy-frp/
 git update-index --assume-unchanged ./frps.ini # to make git ignore changes in the configuration file
 vim ./frps.ini # and change the username & password for Dashboard 
 cp ./systemd/frp-server.service /etc/systemd/system/
@@ -34,13 +34,13 @@ Before running the following commands, change the `<date_and_time>` part to appr
 To view `frp` server's log:
 
 ```shell
-tail -f ~root/easy-frp/logs/frp-log-<date_and_time>
+tail -f /root/easy-frp/logs/frp-log-<date_and_time>
 ```
 
 To view the records of inward SNMP packets: 
 
 ```shell
-tail -f ~root/easy-frp/logs/frps-traffic-log-<date_and_time>
+tail -f /root/easy-frp/logs/frps-traffic-log-<date_and_time>
 ```
 
 ### Dashboard
@@ -60,7 +60,7 @@ If you have set up the NCAP following the steps in [this page](https://github.co
 ### Deploying `frp` Client
 
 ```shell
-cd ~root/easy-frp/
+cd /root/easy-frp/
 git update-index --assume-unchanged ./frpc.ini # to make git ignore changes in the configuration file
 vim ./frpc.ini # and change the IP address of cloud server
 cp ./systemd/frp-client.service /etc/systemd/system/
@@ -77,6 +77,6 @@ Before running the following command, change the `<date_and_time>` part to appro
 To view `frp` client's log:
 
 ```shell
-tail -f ~root/easy-frp/logs/frp-log-<date_and_time>
+tail -f /root/easy-frp/logs/frp-log-<date_and_time>
 ```
 
