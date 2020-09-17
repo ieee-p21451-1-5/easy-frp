@@ -53,7 +53,7 @@ Then, feel free to browse the traffic statistics of the `frp` server using the w
 
 ### A Prerequisite
 
-Since Raspberry Pi doesn't have any [RTC](https://en.wikipedia.org/wiki/Real-time_clock), in its early stage of booting, the system time is "somewhen" on January 1, 1970 (see [Unix time - Wikipedia](https://en.wikipedia.org/wiki/Unix_time)). To avoid such archaic (and incorrect, of course) timestamps in the naming of log files, we'd better start services after the system clock has been synchronized through Internet. We crafted a special service named `check-sync.service`, which will finish its initialization process only if the system clock has been synchronized. Having `check-sync.service`, we can make another service start with a correct system time, which is desired in a lot of cases. 
+Since Raspberry Pi doesn't have any [RTC](https://en.wikipedia.org/wiki/Real-time_clock), in its early stage of booting, the system time is "somewhen" on January 1, 1970 ([Unix epoch](https://en.wikipedia.org/wiki/Unix_time)). To avoid such archaic (and incorrect, of course) timestamps in the naming of log files, we'd better start services after the system clock has been synchronized through Internet. Therefore, we crafted a special service named `check-sync.service`, which will finish its initialization process only if the system clock has been synchronized. Having `check-sync.service`, we can make another service start with a correct system time, which is desired in a lot of cases. 
 
 If you have set up the NCAP following the steps in [this page](https://github.com/ieee-p21451-1-5/demo-ncap),  `check-sync.service` should have already been installed.
 
@@ -72,9 +72,7 @@ Reboot the system.
 
 ### Viewing Logs
 
-Before running the following command, change the `<date_and_time>` part to appropriate value.
-
-To view `frp` client's log:
+To view `frp` client's log (replace the `<date_and_time>` part with appropriate value):
 
 ```shell
 tail -f /root/easy-frp/logs/frp-log-<date_and_time>
