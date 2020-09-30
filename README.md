@@ -1,6 +1,6 @@
 # easy-frp
 
-This repository is for easy deployment of [`frp`](https://github.com/fatedier/frp) in the IEEE P21451-1-5 demonstration system.
+This repository is for easy deployment of [`frp`](https://github.com/fatedier/frp) in IEEE P21451-1-5 standard's demonstration system.
 
 We assume you log in as the super user, though it is **strongly recommended against** in practical deployment.
 
